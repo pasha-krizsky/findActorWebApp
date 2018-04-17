@@ -29,6 +29,7 @@
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
         <a href="/registerUser">Register new user</a>
+
     </form>
 </div>
 
