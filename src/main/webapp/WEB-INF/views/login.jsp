@@ -12,6 +12,7 @@
 <body>
 
 <div class="wrapper">
+
     <c:url var="loginUrl" value="/login"/>
     <form class="form-signin" action="${loginUrl}" method="post">
         <h2 class="form-signin-heading">Please login</h2>
