@@ -208,7 +208,7 @@ public class UserController extends AbstractController {
     private UserProfile obtainUserProfile() {
         List<UserProfile> profiles = userProfileService.findAll();
         UserProfile userProfile = null;
-        for (UserProfile profile: profiles) {
+        for (UserProfile profile : profiles) {
             if (profile.getType().equals(UserProfileType.USER.getUserProfileType())) {
                 userProfile = profile;
             }
