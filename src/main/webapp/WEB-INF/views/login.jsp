@@ -21,15 +21,25 @@
         <c:if test="${param.logout != null}">
             <p>You have been logged out successfully.</p>
         </c:if>
-        <label for="username"></label>
-        <input type="text" class="form-control" id="username" name="ssoId" placeholder="Enter Username" required>
-        <label for="password"></label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
-        <label class="checkbox"><input type="checkbox" id="rememberme" name="remember-me"> Remember Me</label>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-        <a href="/registerUser">Register new user</a>
-
+        <div>
+            <label for="username"></label>
+            <input type="text" class="form-control" id="username" name="ssoId" placeholder="Enter Username" required>
+        </div>
+        <div>
+            <label for="password"></label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password"
+                   required>
+        </div>
+        <div>
+            <label class="checkbox"><input type="checkbox" id="rememberme" name="remember-me"> Remember Me</label>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </div>
+        <div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </div>
+        <div>
+            <a href="/registerUser">Register new user</a>
+        </div>
     </form>
 </div>
 
