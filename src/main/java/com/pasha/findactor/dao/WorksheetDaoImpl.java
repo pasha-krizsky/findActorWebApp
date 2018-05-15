@@ -5,7 +5,7 @@ import com.pasha.findactor.model.constants.WorksheetFields;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  * @since 1.0.0
  */
 @Slf4j
-@Repository
+@Component
 public class WorksheetDaoImpl extends AbstractDao<Integer, Worksheet> implements WorksheetDao {
 
     private static final String STATUS_REVIEWED = "R";
@@ -93,7 +93,7 @@ public class WorksheetDaoImpl extends AbstractDao<Integer, Worksheet> implements
     public Worksheet findByUserId(Integer userId) {
         log.info("Search for worksheet by user id: {}", userId);
         Criteria criteria = createEntityCriteria().createAlias("user", "user")
-        .add(Restrictions.eq("user.id", userId));
+                .add(Restrictions.eq("user.id", userId));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         return (Worksheet) criteria.uniqueResult();
     }

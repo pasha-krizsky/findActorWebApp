@@ -1,5 +1,6 @@
 package com.pasha.findactor.dao;
 
+import lombok.Getter;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -34,6 +35,7 @@ public abstract class AbstractDao<PK extends Serializable, T> {
      * Factory to create {@link Session} objects.
      */
     @Autowired
+    @Getter
     private SessionFactory sessionFactory;
 
     /**
