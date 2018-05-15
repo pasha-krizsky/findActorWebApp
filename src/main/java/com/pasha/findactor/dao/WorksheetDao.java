@@ -1,6 +1,7 @@
 package com.pasha.findactor.dao;
 
 import com.pasha.findactor.model.Worksheet;
+import org.hibernate.SessionFactory;
 
 import java.util.List;
 
@@ -50,4 +51,6 @@ public interface WorksheetDao {
     Worksheet findByUserId(Integer userId);
 
     void updateWorksheet(Worksheet worksheet);
+
+    SessionFactory getSessionFactory();
 }
