@@ -107,6 +107,7 @@ public class WorksheetController extends AbstractController {
         if (result.hasErrors()) {
             return Views.SUBMIT_NEW_WORKSHEET;
         }
+        worksheet.setStatus(WorksheetStatus.REVIEWED.getStatus());
         worksheetService.saveWorksheet(worksheet, getPrincipal());
         return Views.WORKSHEET_SUBMITTED;
     }
