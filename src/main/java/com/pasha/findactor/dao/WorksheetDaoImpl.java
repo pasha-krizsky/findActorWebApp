@@ -104,4 +104,14 @@ public class WorksheetDaoImpl extends AbstractDao<Integer, Worksheet> implements
         log.info("Update worksheet");
         update(worksheet);
     }
+
+    @Override
+    @Transactional
+    public void deleteById(Integer id) {
+        log.info("Deleting user");
+        Criteria criteria = createEntityCriteria();
+        criteria.add(Restrictions.eq("id", id));
+        Worksheet worksheet = (Worksheet) criteria.uniqueResult();
+        delete(worksheet);
+    }
 }

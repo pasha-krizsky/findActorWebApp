@@ -6,6 +6,7 @@ import com.pasha.findactor.model.constants.WorksheetFields;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,6 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -53,36 +55,46 @@ public class Worksheet {
     @Column(name = WorksheetFields.SUBMISSIONDATE)
     private Date submissionDate;
 
+    @NotNull
     @Column(name = WorksheetFields.AGE)
     private Short age;
 
+    @NotNull
     @Column(name = WorksheetFields.HEIGHT)
     private Float height;
 
+    @NotNull
     @Column(name = WorksheetFields.WEIGHT)
     private Float weight;
 
+    @NotEmpty
     @Column(name = WorksheetFields.SEX)
     private String sex;
 
+    @NotEmpty
     @Column(name = WorksheetFields.NATIONALITY)
     private String nationality;
 
+    @NotEmpty
     @Column(name = WorksheetFields.EYE_COLOR)
     private String eyeColor;
 
+    @NotEmpty
     @Column(name = WorksheetFields.SKIN_COLOR)
     private String skinColor;
 
+    @NotEmpty
     @Column(name = WorksheetFields.HAIR_COLOR)
     private String hairColor;
 
+    @NotEmpty
     @Column(name = WorksheetFields.EXPERIENCE)
     private String experience;
 
     /**
      * Why user must get the role.
      */
+    @NotEmpty
     @Column(name = WorksheetFields.REASON)
     private String reason;
 

@@ -26,4 +26,6 @@ public interface WorksheetService {
     Worksheet findByUserId(Integer userId);
 
     void updateWorksheet(Worksheet worksheet);
+
+    void deleteById(Integer id);
 }

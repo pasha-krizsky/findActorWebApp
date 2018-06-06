@@ -18,24 +18,29 @@
 
         <div><span>Worksheets for agent</span></div>
 
-        <table>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Date</th>
-            </tr>
-            <c:forEach items="${worksheets}" var="worksheet">
-                <tr>
-                    <td>${worksheet.user.firstName}</td>
-                    <td>${worksheet.user.lastName}</td>
-                    <td>${worksheet.submissionDate}</td>
-                    <td><a href="<c:url value='/viewWorksheet-${worksheet.id}' />">view</a></td>
-                    <td><a href="<c:url value='/declineWorksheetAgent-${worksheet.id}' />">decline</a></td>
-                    <td><a href="<c:url value='/castingWorksheet-${worksheet.id}' />">casting!</a></td>
-                </tr>
-            </c:forEach>
-        </table>
+        <c:if test="${worksheets.isEmpty()}">
+            <h3 id="noWorksheetsMessage">There is no any worksheets yet!</h3>
+        </c:if>
 
+        <c:if test="${!worksheets.isEmpty()}">
+            <table id="tableWithWorksheets">
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Date</th>
+                </tr>
+                <c:forEach items="${worksheets}" var="worksheet">
+                    <tr>
+                        <td>${worksheet.user.firstName}</td>
+                        <td>${worksheet.user.lastName}</td>
+                        <td>${worksheet.submissionDate}</td>
+                        <td><a href="<c:url value='/viewWorksheet-${worksheet.id}' />">view</a></td>
+                        <td><a href="<c:url value='/declineWorksheetAgent-${worksheet.id}' />">decline</a></td>
+                        <td><a href="<c:url value='/castingWorksheet-${worksheet.id}' />">casting!</a></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:if>
     </div>
 </div>
 

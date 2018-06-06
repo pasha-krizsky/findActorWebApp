@@ -15,7 +15,9 @@
 
 <div>
     <%@include file="auth_header.jsp" %>
-    <div>Submit new worksheet</div>
+    <div id="newWorksheetHeader">
+        Submit new worksheet
+    </div>
     <form:form method="POST" modelAttribute="worksheet">
         <form:input type="hidden" path="id" id="id"/>
         <div>
@@ -120,7 +122,7 @@
 
         <div>
             <div>
-                <input type="submit" value="submit"/>
+                <input id="submitWorksheetButton" type="submit" value="submit"/>
             </div>
         </div>
     </form:form>

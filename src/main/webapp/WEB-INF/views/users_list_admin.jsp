@@ -15,7 +15,7 @@
     <%@include file="auth_header.jsp" %>
     <div>
         <div><span>List of Users </span></div>
-        <table>
+        <table id="tableWithUsers">
             <tr>
                 <th>First name</th>
                 <th>Last name</th>
@@ -39,7 +39,7 @@
                         <td><a href="<c:url value='/editUser-${user.ssoId}' />">edit</a></td>
                     </sec:authorize>
                     <sec:authorize access="hasRole('ADMIN')">
-                        <td><a href="<c:url value='/deleteUser-${user.ssoId}' />">delete</a></td>
+                        <td><a id="deleteUserLink" href="<c:url value='/deleteUser-${user.ssoId}' />">delete</a></td>
                     </sec:authorize>
                 </tr>
             </c:forEach>

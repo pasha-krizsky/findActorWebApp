@@ -74,4 +74,9 @@ public class WorksheetServiceImpl implements WorksheetService {
     public void updateWorksheet(Worksheet worksheet) {
         worksheetDao.updateWorksheet(worksheet);
     }
+
+    @Override
+    public void deleteById(Integer id) {
+        worksheetDao.deleteById(id);
+    }
 }

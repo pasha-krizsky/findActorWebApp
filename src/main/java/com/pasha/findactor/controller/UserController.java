@@ -4,9 +4,11 @@ import com.pasha.findactor.common.Urls;
 import com.pasha.findactor.common.Views;
 import com.pasha.findactor.model.User;
 import com.pasha.findactor.model.UserProfile;
+import com.pasha.findactor.model.Worksheet;
 import com.pasha.findactor.model.constants.UserProfileType;
 import com.pasha.findactor.service.UserProfileService;
 import com.pasha.findactor.service.UserService;
+import com.pasha.findactor.service.WorksheetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -48,6 +50,9 @@ public class UserController extends AbstractController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private WorksheetService worksheetService;
 
     @Autowired
     private PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices;
@@ -165,8 +170,13 @@ public class UserController extends AbstractController {
      */
     @RequestMapping(value = {Urls.DELETE_USER_URL}, method = RequestMethod.GET)
     public String deleteUser(@PathVariable String ssoId) {
-        userService.deleteUserBySSO(ssoId);
-
+        User user = userService.findBySSO(ssoId);
+        Worksheet worksheet = worksheetService.findByUserId(user.getId());
+        if (worksheet != null) {
+            worksheetService.deleteById(worksheet.getId());
+        } else {
+            userService.deleteUserBySSO(ssoId);
+        }
         return Views.REDIRECT_LIST;
     }
 

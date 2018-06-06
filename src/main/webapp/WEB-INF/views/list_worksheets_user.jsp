@@ -36,9 +36,11 @@
                 <td>
                     ${worksheet.status}
                 </td>
-                <td>
-                    <a href="<c:url value='/editWorksheet-${worksheet.id}' />">edit</a>
-                </td>
+                <c:if test="${!worksheet.status.equals(\"R\")}">
+                    <td>
+                        <a id="editWorksheetLink" href="<c:url value='/editWorksheet-${worksheet.id}' />">edit</a>
+                    </td>
+                </c:if>
             </tr>
         </table>
 

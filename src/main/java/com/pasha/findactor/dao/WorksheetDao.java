@@ -53,4 +53,9 @@ public interface WorksheetDao {
     void updateWorksheet(Worksheet worksheet);
 
     SessionFactory getSessionFactory();
+
+    /**
+     * Deletes {@link Worksheet} object from database.
+     */
+    void deleteById(Integer id);
 }

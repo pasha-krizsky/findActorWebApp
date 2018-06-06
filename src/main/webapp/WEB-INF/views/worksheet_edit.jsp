@@ -8,7 +8,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Submit new worksheet</title>
+    <title>Edit worksheet</title>
 </head>
 
 <body>
@@ -120,8 +120,10 @@
 
         <div>
             <div>
-                <input type="submit" value="edit"/> or <a
-                    href="<c:url value='/worksheetsUser' />">Cancel</a>
+
+                <input id="submitEditedWorksheet" type="submit" value="edit"/> or <a
+                    href="<c:url value='/worksheetsUser' />" id="cancelLink">Cancel</a>
+
             </div>
         </div>
     </form:form>

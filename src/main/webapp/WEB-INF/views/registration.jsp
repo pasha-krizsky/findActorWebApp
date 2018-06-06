@@ -93,7 +93,7 @@
                 <div>
                     <label for="userProfiles">Roles</label>
                     <div>
-                        <form:select path="userProfiles" items="${roles}" multiple="true" itemValue="id"
+                        <form:select id="selectRole" path="userProfiles" items="${roles}" multiple="true" itemValue="id"
                                      itemLabel="type"/>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                             href="<c:url value='/listUsers' />">Cancel</a>
                     </c:when>
                     <c:otherwise>
-                        <input type="submit" value="Register"/> or <a
+                        <input id="registerButton" type="submit" value="Register"/> or <a
                             href="<c:url value='/listUsers' />">Cancel</a>
                     </c:otherwise>
                 </c:choose>
