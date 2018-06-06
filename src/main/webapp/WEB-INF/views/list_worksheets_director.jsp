@@ -20,7 +20,7 @@
             <h4>Worksheets for director</h4>
         </span>
 
-        <table>
+        <table id="tableWithWorksheets">
             <tr>
                 <th>First name</th>
                 <th>Last name</th>
