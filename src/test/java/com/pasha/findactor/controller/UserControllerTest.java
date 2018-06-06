@@ -3,6 +3,7 @@ package com.pasha.findactor.controller;
 import com.pasha.findactor.model.User;
 import com.pasha.findactor.service.UserProfileService;
 import com.pasha.findactor.service.UserService;
+import com.pasha.findactor.service.WorksheetService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -19,6 +20,7 @@ import java.util.Collections;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -46,6 +48,9 @@ public class UserControllerTest {
 
     @Mock
     private AuthenticationTrustResolver authenticationTrustResolver;
+
+    @Mock
+    private WorksheetService worksheetService;
 
     private MockMvc mockMvc;
 
@@ -126,6 +131,9 @@ public class UserControllerTest {
     @Test
     public void testDeleteUserGet() throws Exception {
         final String DELETE_USER_URL = "/deleteUser-ssoId";
+
+        doNothing().when(worksheetService).deleteById(anyInt());
+        when(worksheetService.findByUserId(anyInt())).thenReturn(null);
 
         String expectedViewName = "redirect:/listUsers";
         mockMvc.perform(get(DELETE_USER_URL))

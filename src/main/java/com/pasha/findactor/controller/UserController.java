@@ -171,7 +171,12 @@ public class UserController extends AbstractController {
     @RequestMapping(value = {Urls.DELETE_USER_URL}, method = RequestMethod.GET)
     public String deleteUser(@PathVariable String ssoId) {
         User user = userService.findBySSO(ssoId);
-        Worksheet worksheet = worksheetService.findByUserId(user.getId());
+
+        Worksheet worksheet = null;
+        if (user != null) {
+            worksheet = worksheetService.findByUserId(user.getId());
+
+        }
         if (worksheet != null) {
             worksheetService.deleteById(worksheet.getId());
         } else {
